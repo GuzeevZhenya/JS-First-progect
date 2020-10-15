@@ -1,0 +1,52 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+input {
+    font-size: 20px;
+    width: 300px;
+    margin: 5px 0;
+    padding: 10px;
+    outline: none;
+}
+
+form {
+    margin: 200px;
+}
+
+button {
+    width: 150px;
+    height: 30px;
+}
+
+.invalid {
+    border: 2px solid red;
+}
+
+.disabled {
+    opacity: 0;
+}
+
+.div {
+    font-size: 26px;
+    text-align: center;
+    color: red;
+}
+
+.chips {
+    width: 100px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, .6);
+    color: #ffffff;
+    margin: -500px auto;
+}
+
+.error {
+    background-color: red;
+    color: red;
+}
