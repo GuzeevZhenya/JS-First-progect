@@ -69,6 +69,7 @@ users.forEach((item) => {
         isActive,
         gender
     } = item;
+
     let info = document.createElement('div');
     document.body.appendChild(info);
     info.classList.add('box');
@@ -102,10 +103,6 @@ export function calculateUsers(users) {
 }
 
 calculateUsers(users);
-
-
-// const allWomen = (users) =>users.reduce((count,item)=>(count + item.gender),0 === 'female');
-// console.log(allWomen(users));
 
 
 export const bigestBalance = (users) => users

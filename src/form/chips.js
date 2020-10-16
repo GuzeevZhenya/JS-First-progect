@@ -1,7 +1,7 @@
-
 //export let chipsClass = [chipsCreate,deleteChips,addChips];
 
 // export let chipsClass = {chipsCreate,deleteChips,addChips};
+
 //Выподашка при успешной авторизации
 export function chipsCreate(message, timeremove = 3000) {
     let chips = document.createElement('div');
