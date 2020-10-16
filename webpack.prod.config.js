@@ -1,40 +1,44 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    entry: './src/index.js',
+    mode: "production",
+    entry: "./src/index.js",
     output: {
-        filename: 'main.js',
-        path: path.resolve(__dirname, 'dist'),
-    },
-    devSercer: {
-        contentBase: './dist',
+        filename: "bundle.js",
+        path: path.resolve(__dirname, "../dist"),
     },
     module: {
         rules: [{
-                test: /\.css$/,
+                test: /\.s[a|c]ss$/,
                 use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    require("postcss-preset-env"),
+                                    require("autoprefixer"),
+                                    require("cssnano"),
+                                ],
+                            },
+                        },
+                    },
+                    "sass-loader",
                 ],
             },
             {
-                test: /\.m?js$/,
-                exclude: /(node_modules)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presents: ['@babel/present-env']
-                    }
-                }
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: ["babel-loader"],
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    'file-loader',
-                ],
+                use: ["file-loader"],
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -42,7 +46,11 @@ module.exports = {
             },
         ],
     },
-    plugins: [new HtmlWebpackPlugin({ template: "./index.html" }),
-        new CleanWebpackPlugin()
+    plugins: [
+        new MiniCssExtractPlugin(),
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, "../index.html"),
+        }),
     ],
 };
