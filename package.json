@@ -4,7 +4,8 @@
     "description": "",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "webpack --config webpack.prod.config.js"
+        "build": "webpack --config webpack.prod.config.js",
+        "start": "webpack-dev-server --open"
     },
     "repository": {
         "type": "git",
