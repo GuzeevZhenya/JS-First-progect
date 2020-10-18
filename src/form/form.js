@@ -1,7 +1,8 @@
 import { initLogin } from "./login";
 import { initRegistration } from "./register";
+import { initChips} from "./chips";
 
-const ROOT_NODE = document.getElementById('app');
+
 
 const template = `
 <div class="page" id="page" name="register">
@@ -24,7 +25,9 @@ const template = `
 `;
 
 export const initForm = () => {
+	const ROOT_NODE = document.getElementById('app');
     ROOT_NODE.innerHTML = template;
     const { logInForm } = initLogin();
-    const { regForm } = initRegistration();
+	const { regForm } = initRegistration();
+	const{chipsForm} = initChips();
 };

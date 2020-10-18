@@ -1,3 +1,5 @@
+import { chipsCreate } from "./chips";
+
  export const initLogin = () => {
      const login = document.querySelector('.login');
      const password = document.querySelector('.password');
@@ -5,11 +7,7 @@
      const formLogin = document.querySelector('form');
      const div = document.querySelector('.div');
 
-     const users = {
-         email: '1',
-         password: '12',
-         name: 'Lil'
-     };
+     
 
      login.addEventListener('input', (event) => {
          if (document.body.contains(div)) {
@@ -51,13 +49,13 @@
          if (login.value == users.email && password.value == users.password) {
              let div = document.createElement('div');
              document.body.appendChild(div);
-             chips('Добро пожаловать');
+             chipsCreate('Добро пожаловать');
              form.remove();
          } else {
              let div = document.createElement('div');
              div.classList.add('div');
              document.body.appendChild(div);
-             chips('Ошибка, повторите ввод данных');
+             chipsCreate('Ошибка, повторите ввод данных');
              password.value = "";
              login.value = "";
              btnLogin.disabled = true;
