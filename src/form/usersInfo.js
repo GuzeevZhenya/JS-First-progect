@@ -1,4 +1,5 @@
 import { Template } from "webpack";
+import { users } from "./register";
 
 export const usersInfo = [{
         name: "Alex",
@@ -67,6 +68,9 @@ export const initClients = () => {
         response.json();
     }).then(users => {
         createUsersTab(users);
-    });
+    }).catch(error => {
+        console.error(error);
+        ROOT_NODE.innerHTML = "<div>Sorry</div>";
+    })
 
 };
