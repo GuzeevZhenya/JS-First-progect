@@ -1,9 +1,10 @@
+export let users = [];
 export const initRegistration = () => {
 
     const form = document.forms.register;
     const btn = document.querySelector('#btn');
     const INVALID_CLASS = "invalid";
-    let users = [];
+   
 
     //Поля для записи из формы
     const formHelper = {

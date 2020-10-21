@@ -5,7 +5,7 @@
 
 import { initForm } from "./form/form";
 import { initRouter } from './form/router';
-import "./assets/styles/style.css";
+import "./assets/styles/style.scss";
 initRouter();
 initForm();
 
