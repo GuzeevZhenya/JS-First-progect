@@ -1,8 +1,8 @@
 import { usersInfo } from "./usersInfo";
 
 export function initTableOfUsers() {
-    usersInfo();
-    users.forEach((item) => {
+    // usersInfo();
+    usersInfo.forEach((item) => {
         //деструктуризация, чтобы не писать item.name
         const {
             name,
@@ -28,11 +28,11 @@ export function initTableOfUsers() {
         btnDelete.addEventListener('click', (event) => {
             event.preventDefault();
             // получаем актуальный индекс 
-            const userIndex = users.findIndex(user => user.email === item.email);
-            users.splice(userIndex, 1);
+            const userIndex = usersInfo.findIndex(user => user.email === item.email);
+            usersInfo.splice(userIndex, 1);
             info.remove();
             btnDelete.remove();
-            calculateUsers(users);
+            calculateUsers(usersInfo);
         });
     });
 
@@ -46,7 +46,7 @@ export function initTableOfUsers() {
         menInfo.innerHTML = `Количество мужчин: ` + allMen(users).length;
     }
 
-    calculateUsers(users);
+    calculateUsers(usersInfo);
 
 
     const bigestBalance = (users) => users

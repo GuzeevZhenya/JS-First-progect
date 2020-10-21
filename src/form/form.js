@@ -27,7 +27,6 @@ export const template = `
 export const initForm = () => {
     const ROOT_NODE = document.getElementById('app');
     ROOT_NODE.innerHTML = template;
-    const { logInForm } = initLogin();
-    const { regForm } = initRegistration();
-    const { chipsCreate } = initChips();
+    initLogin();
+    initRegistration();
 };
