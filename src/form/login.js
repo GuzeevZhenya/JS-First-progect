@@ -1,5 +1,5 @@
-import { chipsCreate } from "./chips";
-
+import { initChips } from "./chips";
+initChips();
 export const initLogin = () => {
     const login = document.querySelector('.login');
     const password = document.querySelector('.password');
@@ -8,6 +8,12 @@ export const initLogin = () => {
     const div = document.querySelector('.div');
 
 
+
+    const users = {
+        email: '1',
+        password: '12',
+        name: 'Lil'
+    };
 
     login.addEventListener('input', (event) => {
         if (document.body.contains(div)) {

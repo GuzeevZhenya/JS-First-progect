@@ -1,10 +1,10 @@
 import { initLogin } from "./login";
 import { initRegistration } from "./register";
-import { initChips} from "./chips";
+import { initChips } from "./chips";
 
 
 
-const template = `
+export const template = `
 <div class="page" id="page" name="register">
 <div class="container">
 		<form action="registerForm" name="register" id="registerForm" novalidate>
@@ -25,9 +25,9 @@ const template = `
 `;
 
 export const initForm = () => {
-	const ROOT_NODE = document.getElementById('app');
+    const ROOT_NODE = document.getElementById('app');
     ROOT_NODE.innerHTML = template;
     const { logInForm } = initLogin();
-	const { regForm } = initRegistration();
-	const{chipsForm} = initChips();
+    const { regForm } = initRegistration();
+    const { chipsForm } = initChips();
 };
