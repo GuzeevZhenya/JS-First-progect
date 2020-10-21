@@ -1,5 +1,5 @@
-import { initChips } from "./chips";
-initChips();
+import { chipsCreate } from "./chips";
+
 export const initLogin = () => {
     const login = document.querySelector('.login');
     const password = document.querySelector('.password');

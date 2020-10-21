@@ -5,9 +5,10 @@
 
 import { initForm } from "./form/form";
 import { initRouter } from './form/router';
-import { initTableOfUsers } from "./form/users-table";
-
-
-initForm();
 initRouter();
-initTableOfUsers();
+initForm();
+
+
+// import { initTableOfUsers } from "./form/users-table";
+
+// initTableOfUsers();
