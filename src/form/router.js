@@ -1,16 +1,26 @@
  import { initTableOfUsers } from "./users-table.js";
  import { initForm } from "./form";
 
+
+
+ const router = () => {
+     if (window.location.hash === "#/clients") {
+         protector(initTableOfUsers);
+         ROOT_NODE.innerHTML = "";
+     } else if (window.location.hash === '#/form') {
+         initForm();
+     } else {
+         ROOT_NODE.innerHTML = `<div> Page not found </div>`;
+     }
+ }
+
  export const initRouter = () => {
-     window.addEventListener('hashchange', (event) => {
-         if (window.location.hash === "#/clients") {
-             protector(initTableOfUsers);
-         } else if (window.location.hash === '#/form') {
-             initForm();
-         } else {
-             ROOT_NODE.innerHTML = `<div>Page not found</div>`;
-         }
-     });
+     window.addEventListener('hashchange', router);
+     router();
+     if (!window.location.hash) {
+         window.location.hash = "/form";
+         //или на главную, когда она будет у нас - window.location.hash = "/";
+     }
  };
 
 
@@ -23,21 +33,21 @@
      }
  };
 
- export const branch = (conditionFn, trueFn, falseFn) => {
-     conditionFn() ? trueFn() : falseFn();
- }
+ //  export const branch = (conditionFn, trueFn, falseFn) => {
+ //      conditionFn() ? trueFn() : falseFn();
+ //  }
 
 
 
-  export const initClients = () => {
-      ROOT_NODE.innerHTML = template;
-      fetch("https://gist.githubusercontent.com/oDASCo/3f4014d24dc79e1e29b58bfa96afaa1b/raw/677516ee3bd278f7e3d805108596ca431d00b629/db.json").then((response) => {
-          response.json();
-      }).then(users => {
-          createUsersTab(users);
-      }).catch(error => {
-          console.error(error);
-          ROOT_NODE.innerHTML = "<div>Sorry</div>";
-      })
+ //  export const initClients = () => {
+ //      ROOT_NODE.innerHTML = template;
+ //      fetch("https://gist.githubusercontent.com/oDASCo/3f4014d24dc79e1e29b58bfa96afaa1b/raw/677516ee3bd278f7e3d805108596ca431d00b629/db.json").then((response) => {
+ //          response.json();
+ //      }).then(users => {
+ //          createUsersTab(users);
+ //      }).catch(error => {
+ //          console.error(error);
+ //          ROOT_NODE.innerHTML = "<div>Sorry</div>";
+ //      })
 
-  };
+ //  };

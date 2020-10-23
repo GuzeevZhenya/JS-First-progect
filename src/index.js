@@ -3,11 +3,11 @@
 // import { bigestBalance, calculateUsers, usersInfo } from "./users-table";
 // import { login, password, btnLogin, formLogin, div, setDisabledStatus, empty, } from "./login.js";
 
-import { initForm } from "./form/form";
+// import { initForm } from "./form/form";
 import { initRouter } from './form/router';
 import "./assets/styles/style.scss";
 initRouter();
-initForm();
+// initForm();
 
 
 // import { initTableOfUsers } from "./form/users-table";

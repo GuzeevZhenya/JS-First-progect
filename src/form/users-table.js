@@ -1,7 +1,15 @@
 import { usersInfo } from "./usersInfo";
+const template = `<div id ="tableOfClients"></div>`;
 
 export function initTableOfUsers() {
-    // usersInfo();
+
+
+    const ROOT_NODE = document.getElementById('app');
+    ROOT_NODE.innerHTML = template;
+    const tableRoot = document.getElementById("tableOfClients");
+
+
+
     usersInfo.forEach((item) => {
         //деструктуризация, чтобы не писать item.name
         const {
@@ -10,6 +18,7 @@ export function initTableOfUsers() {
             email,
             phone,
             balance,
+
             isActive,
             gender
         } = item;
@@ -35,7 +44,6 @@ export function initTableOfUsers() {
             calculateUsers(usersInfo);
         });
     });
-
 
     function calculateUsers(users) {
         let womenInfo = document.querySelector('.female-info');
